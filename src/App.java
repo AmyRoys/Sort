@@ -3,14 +3,14 @@ import java.util.Random;
 
 public class App {
     public static void main(String[] args) {
-        int[] array = generateRandomArray(1000);
-        int[] array2 = generateRandomArray(1000);
+        int[] array = generateRandomArray(10000);
+        int[] array2 = generateRandomArray(10000);
 
         System.out.println(" Starting call ");
 
-        long startTime = System.currentTimeMillis();
+        long bstartTime = System.currentTimeMillis();
         sortRandomArray(array);
-        long endTime = System.currentTimeMillis();
+        long bendTime = System.currentTimeMillis();
         
         if (isSorted(array)) {
             System.out.println("ALL Good :- )");
@@ -20,8 +20,20 @@ public class App {
          System.out.println("SOMETHING FISHY !!!!!!!!!!!!!!!!");
         }
            
-        System.out.println("Time taken to bubble sort: " + (endTime - startTime) + " milliseconds");
-        System.out.println("Time taken to quick sort: " + (endTime - startTime) + " milliseconds");
+        System.out.println("Time taken to bubble sort: " + (bendTime - bstartTime) + " milliseconds");
+        
+        long qstartTime = System.currentTimeMillis();	
+        sortRandomArray2(array2);
+        long qendTime = System.currentTimeMillis();
+
+        if (isSorted(array2)) {
+            System.out.println("ALL Good :- )");
+        }
+        else 
+        {
+         System.out.println("SOMETHING FISHY !!!!!!!!!!!!!!!!");
+        }
+        System.out.println("Time taken to quick sort: " + (qendTime - qstartTime) + " milliseconds");
     }
     
 
