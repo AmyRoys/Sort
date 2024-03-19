@@ -20,7 +20,7 @@ public class App {
          System.out.println("SOMETHING FISHY !!!!!!!!!!!!!!!!");
         }
            
-        System.out.println("Time taken to bubble sort: " + (bendTime - bstartTime) + " milliseconds");
+        System.out.println("Time taken to merge sort: " + (bendTime - bstartTime) + " milliseconds");
         
         long qstartTime = System.currentTimeMillis();	
         sortRandomArray2(array2);
@@ -38,8 +38,12 @@ public class App {
     
 
     public static int[] sortRandomArray(int[] inArray) {
-        BubbleSort bubbleSort = new BubbleSort(inArray, 0, inArray.length);
-        bubbleSort.run();
+        try {
+            int numThreads = 4; // Change this to the number of threads you want to use
+            MergeSort.mergeSort(inArray, numThreads);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return inArray;
     }
 
